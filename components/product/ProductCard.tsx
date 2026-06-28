@@ -25,7 +25,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/fragrances/${product.slug}`}
-      className="group relative block aspect-[3/4] overflow-hidden rounded-3xl shadow-[0_24px_60px_-34px_rgba(35,32,27,0.5)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_34px_80px_-38px_rgba(35,32,27,0.6)]"
+      className="group relative block aspect-[3/4] transform-gpu overflow-hidden rounded-3xl shadow-[0_24px_60px_-34px_rgba(35,32,27,0.5)] transition-all duration-500 [clip-path:inset(0_round_1.5rem)] hover:-translate-y-1 hover:shadow-[0_34px_80px_-38px_rgba(35,32,27,0.6)]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

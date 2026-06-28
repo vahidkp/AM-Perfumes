@@ -10,7 +10,7 @@ export function formatPrice(amount: number): string {
 }
 
 // AM Perfume — Abu Dhabi, UAE
-export const WHATSAPP_NUMBER = '971501234567'
+export const WHATSAPP_NUMBER = '971555889442'
 
 export function whatsappLink(message: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`

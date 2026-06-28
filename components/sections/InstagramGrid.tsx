@@ -3,14 +3,14 @@ import { motion } from 'framer-motion'
 import { products } from '@/lib/products'
 import ProductVisual from '@/components/product/ProductVisual'
 
-// Bento layout — varied tile spans for an editorial feed (4-col × 3-row on desktop).
+// Uniform squares on mobile; varied bento spans only from desktop (md) up.
 const tiles = [
-  { product: products[1], index: 2, span: 'col-span-2 row-span-2' }, // hero tile
-  { product: products[0], index: 0, span: 'col-span-2 row-span-1' },
-  { product: products[1], index: 0, span: 'col-span-1 row-span-1' },
-  { product: products[0], index: 3, span: 'col-span-1 row-span-1' },
-  { product: products[0], index: 2, span: 'col-span-2 row-span-1' },
-  { product: products[1], index: 3, span: 'col-span-2 row-span-1' },
+  { product: products[1], index: 2, span: 'md:col-span-2 md:row-span-2' }, // hero tile
+  { product: products[0], index: 0, span: 'md:col-span-2' },
+  { product: products[1], index: 0, span: '' },
+  { product: products[0], index: 3, span: '' },
+  { product: products[0], index: 2, span: 'md:col-span-2' },
+  { product: products[1], index: 3, span: 'md:col-span-2' },
 ]
 
 export default function InstagramGrid() {
@@ -18,22 +18,22 @@ export default function InstagramGrid() {
     <section className="bg-cream py-section-sm md:py-section">
       <div className="mx-auto max-w-content px-5 md:px-12">
         <div className="mb-10 text-center">
-          <p className="eyebrow mb-4">@amperfume</p>
+          <p className="eyebrow mb-4">@_am_perfumes_</p>
           <h2 className="font-display text-display-md text-ink">Follow Our World</h2>
         </div>
 
-        <div className="grid auto-rows-[150px] grid-cols-2 gap-3 md:auto-rows-[200px] md:grid-cols-4 md:gap-4">
+        <div className="grid grid-cols-2 gap-3 md:auto-rows-[200px] md:grid-cols-4 md:gap-4">
           {tiles.map((tile, i) => (
             <motion.a
               key={i}
-              href="https://instagram.com/amperfume"
+              href="https://instagram.com/_am_perfumes_"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: (i % 3) * 0.08 }}
-              className={`group relative overflow-hidden rounded-2xl ${tile.span}`}
+              className={`group relative aspect-square overflow-hidden rounded-2xl md:aspect-auto ${tile.span}`}
             >
               <ProductVisual product={tile.product} index={tile.index} />
               <div className="absolute inset-0 flex items-center justify-center bg-emerald/0 transition-colors duration-300 group-hover:bg-emerald/55">

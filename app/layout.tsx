@@ -3,6 +3,7 @@ import { Fraunces, Manrope, Noto_Naskh_Arabic } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import CartDrawer from '@/components/layout/CartDrawer'
+import WhatsAppButton from '@/components/layout/WhatsAppButton'
 import { Toaster } from 'react-hot-toast'
 import './globals.css'
 
@@ -61,6 +62,7 @@ export default function RootLayout({
         <CartDrawer />
         <main>{children}</main>
         <Footer />
+        <WhatsAppButton />
         <Toaster
           position="bottom-right"
           toastOptions={{

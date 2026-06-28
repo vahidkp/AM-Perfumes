@@ -60,7 +60,7 @@ export default function ProductSpotlight({
             <p className="mb-3 font-body text-xs uppercase tracking-[0.2em] text-gold-deep">
               Scent Notes
             </p>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {[
                 { label: 'Top', notes: product.topNotes.slice(0, 2) },
                 { label: 'Heart', notes: product.heartNotes.slice(0, 2) },
