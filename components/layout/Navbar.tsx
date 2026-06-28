@@ -3,13 +3,18 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useCartStore } from '@/lib/cart-store'
-import { IconSparkle } from '@/components/ui/icons'
+import {
+  IconTruck,
+  IconGift,
+  IconWallet,
+  IconShield,
+} from '@/components/ui/icons'
 
 const ANNOUNCEMENTS = [
-  'Free Delivery Across the UAE',
-  'Buy 2 Get 1 Free',
-  'Cash on Delivery Available',
-  '100% Authentic Fragrances',
+  { text: 'Free Delivery Across the UAE', Icon: IconTruck },
+  { text: 'Buy 2 Get 1 Free', Icon: IconGift },
+  { text: 'Cash on Delivery Available', Icon: IconWallet },
+  { text: '100% Authentic Fragrances', Icon: IconShield },
 ]
 
 export default function Navbar() {
@@ -42,9 +47,9 @@ export default function Navbar() {
         <div className="flex animate-marquee whitespace-nowrap py-2.5 text-[11px] uppercase tracking-[0.22em] text-cream/85">
           {Array.from({ length: 2 }).map((_, k) => (
             <span key={k} className="flex shrink-0">
-              {ANNOUNCEMENTS.map((t) => (
-                <span key={t} className="mx-6 flex items-center gap-2">
-                  <IconSparkle className="h-3.5 w-3.5 text-gold-light" /> {t}
+              {ANNOUNCEMENTS.map(({ text, Icon }) => (
+                <span key={text} className="mx-6 flex items-center gap-2">
+                  <Icon className="h-4 w-4 text-gold-light" /> {text}
                 </span>
               ))}
             </span>

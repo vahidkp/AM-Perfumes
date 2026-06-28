@@ -32,21 +32,17 @@ const AUTOPLAY_MS = 5500
 
 export default function HeroSection() {
   const [index, setIndex] = useState(0)
-  const [paused, setPaused] = useState(false)
 
   useEffect(() => {
-    if (paused) return
     const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), AUTOPLAY_MS)
     return () => clearInterval(t)
-  }, [paused])
+  }, [])
 
   const slide = slides[index]
 
   return (
     <section
       className="relative h-[72vh] min-h-[480px] w-full overflow-hidden bg-cream md:h-[82vh]"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
       aria-roledescription="carousel"
     >
       <AnimatePresence mode="sync">
