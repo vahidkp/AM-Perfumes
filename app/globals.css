@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light editorial palette */
+  --color-ivory: #fcf9f2;
+  --color-cream: #f6eedd;
+  --color-sand: #efe5d3;
+  --color-white: #ffffff;
+  --color-ink: #23201b;
+  --color-ink-soft: #6e665a;
+  --color-gold: #c9a84c;
+  --color-gold-deep: #8c6a22;
+  --color-gold-light: #e2c572;
+  --color-emerald: #0c3a2e;
+  --color-garnet: #8e2c44;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  /* clip (not hidden) prevents horizontal scroll WITHOUT breaking position: sticky */
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Media never exceeds its container */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* Prevent flex/grid children from forcing horizontal overflow on small screens */
+@media (max-width: 767px) {
+  .min-w-0-children > * {
+    min-width: 0;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 5px;
+  border: 2px solid var(--color-cream);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-emerald);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-fraunces), Georgia, serif;
+  }
+  body {
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer components {
+  .container-luxe {
+    @apply mx-auto w-full max-w-content px-5 md:px-12;
+  }
+  .eyebrow {
+    @apply font-body text-[11px] font-semibold uppercase tracking-[0.25em] text-gold-deep;
+  }
+  .rule {
+    @apply mx-auto h-px w-14 bg-gold;
+  }
+  /* Primary CTA — emerald with a fine gold edge so it reads on any background */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-emerald px-8 py-4 font-body text-xs font-semibold uppercase tracking-[0.18em] text-cream shadow-[0_12px_30px_-14px_rgba(12,58,46,0.75)] transition-all duration-300 hover:border-gold hover:bg-emerald-light disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-emerald/30 px-8 py-4 font-body text-xs font-semibold uppercase tracking-[0.18em] text-emerald transition-all duration-300 hover:bg-emerald hover:text-ivory;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #b8923a 0%, #c9a84c 45%, #8c6a22 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .card-luxe {
+    @apply border border-ink/10 bg-white shadow-[0_18px_50px_-30px_rgba(35,32,27,0.45)];
+  }
+}
